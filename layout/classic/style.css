@@ -1,0 +1,649 @@
+/* # General */
+html, body {
+    font-family: "Tahoma", sans-serif;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    -webkit-text-size-adjust: none;
+    width: 100% !important;
+    font-family: "Tahoma", sans-serif;
+    color: #5c5c5c;
+    font-size: 12pt;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    color: #475478;
+    text-decoration: underline;
+}
+
+table {
+    border-collapse: collapse;
+    border: 0;
+}
+
+td, tr {
+    padding: 0;
+    margin: 0;
+}
+
+tr.header {
+    height: 52px;
+}
+
+tr.header > td {
+    vertical-align: middle;
+}
+
+tr.body {
+    vertical-align: top;
+}
+
+tr.side-by-side>td:first-child{
+    border-right:20px solid white;
+}
+tr.side-by-side>td:last-child{
+    border-left:20px solid white;
+}
+
+div.wrapper>table{
+    table-layout: fixed;
+}
+
+div.wrapper>table>tbody>tr>td{
+    overflow: hidden;
+}
+div.wrapper>table>tbody>tr>td[colspan="1"]{
+    width:8.33333%;
+}
+div.wrapper>table>tbody>tr>td[colspan="2"]{
+    width:16.66666%;
+}
+div.wrapper>table>tbody>tr>td[colspan="3"]{
+    width:25%;
+}
+div.wrapper>table>tbody>tr>td[colspan="4"]{
+    width:33.33333%;
+}
+div.wrapper>table>tbody>tr>td[colspan="5"]{
+    width:41.66666%;
+}
+div.wrapper>table>tbody>tr>td[colspan="6"]{
+    width:50%;
+}
+div.wrapper>table>tbody>tr>td[colspan="7"]{
+    width:58.33333%;
+}
+div.wrapper>table>tbody>tr>td[colspan="8"]{
+    width:66.66666%;
+}
+div.wrapper>table>tbody>tr>td[colspan="9"]{
+    width:75%;
+}
+div.wrapper>table>tbody>tr>td[colspan="10"]{
+    width:83.33333%;
+}
+div.wrapper>table>tbody>tr>td[colspan="11"]{
+    width:91.66666%;
+}
+div.wrapper>table>tbody>tr>td[colspan="12"]{
+    width:100%;
+}
+/* ## Header
+    Header is implemented in header.tpl. Usually it must be implemented once and used everywhere.
+
+    Header has structure like:
+```
+<table class="logo-ribbon" width="100%">
+<tr class="logo-ribbon">
+    <td colspan="12">
+        <table class="fill-width">
+            <tr class="logo logo-header">
+                <td class="min-width"><!--logo--></td>
+                <td class="spacer-5"></td>
+                <td class="navy"><!--title--></td>
+                <td class="fill-width align-right small" align="right"><!--help text--></td>
+            </tr>
+            <tr class="space-160"></tr>
+            <tr class="karazin">
+                <td class="whiteblock" colspan="4">
+                    <table width="100%">
+                        <tr>
+                            <td><!--main text--></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+```
+*/
+table.logo-ribbon {
+    background-size: cover;
+    height: 300px;
+    background: url('http://www.univer.kharkov.ua/mail/university.jpg') no-repeat top center;
+}
+
+tr.logo-ribbon > td {
+    vertical-align: top;
+    padding: 20px;
+}
+
+tr.logo > td {
+    vertical-align: middle;
+}
+
+tr.logo-header {
+    font-family: "Tahoma", sans-serif;
+    font-weight: 600;
+    font-size: 10pt;
+    line-height: 1;
+}
+
+tr.logo img {
+    height: 35px;
+}
+
+tr.logo-footer {
+    text-align: left;
+}
+
+tr.logo-footer img {
+    height: 55px;
+}
+
+tr.karazin > td {
+    position: relative;
+    width: 100%;
+}
+
+img.karazin {
+    opacity: 1;
+    margin-bottom: -5px;
+}
+
+td.v-middle {
+    vertical-align: middle;
+}
+
+/* ## White-background block
+
+    <div class="whiteblock">contents</div>
+*/
+
+.whiteblock {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 85px;
+    width: 100%;
+    line-height: 16pt;
+}
+
+.h-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.v-top {
+    vertical-align: top;
+}
+
+/* # Structure
+ ## Spacers
+
+```
+<table border=1>
+<tr class="spacer-20"><td>-</td></tr>
+</table>
+
+<table border=1>
+<tr class="spacer-26"><td>-</td></tr>
+</table>
+
+<table border=1>
+<tr><td class="spacer-5">-</td></tr>
+</table>
+
+<table border=1>
+<tr><td class="spacer-10">-</td></tr>
+</table>
+
+<table border=1>
+<tr><td class="spacer-20">-</td></tr>
+</table>
+```
+*/
+
+tr.spacer-26 {
+    min-height: 26px;
+    height: 26px;
+}
+
+tr.spacer-20 {
+    min-height: 20px;
+    height: 20px;
+}
+
+td.spacer-20 {
+    min-width: 20px;
+}
+
+td.spacer-10 {
+    min-width: 10px;
+}
+
+td.spacer-5 {
+    min-width: 5px;
+    max-width: 5px;
+}
+
+tr.section > td {
+    padding-left: 20px;
+    line-height: 50px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* ## Sections
+
+    <table>
+     <tr class="section red">
+            <td>red</td>
+        </tr>
+        <tr class="section navy">
+            <td>navy</td>
+        </tr>
+        <tr class="section yellow">
+            <td>yellow</td>
+        </tr>
+    </table>
+*/
+
+tr.section.red {
+    background-color: #890531;
+}
+
+tr.section.navy {
+    background-color: #475478;
+}
+
+tr.section.yellow {
+    background-color: #ceac68;
+}
+
+/* ## Widgets
+
+    <table>
+        <tr class="widget">
+            <td>
+                <h1>header 1</h1>
+                <h2>header 2</h2>
+                regular
+            </td>
+        </tr>
+
+        <tr class="widget small">
+            <td>
+                <h1>header 1</h1>
+                <h2>header 2</h2>
+                small widget
+            </td>
+        </tr>
+
+        <tr class="widget yellow">
+            <td>
+                <h1>header 1</h1>
+                <h2>header 2</h2>
+                yellow widget
+            </td>
+        </tr>
+
+         <tr class="widget transparent">
+            <td>
+                <h1>header 1</h1>
+                <h2>header 2</h2>
+                transparent widget
+            </td>
+        </tr>
+    </table>
+*/
+
+tr.widget {
+    vertical-align: top;
+}
+
+tr.widget > td {
+    padding: 20px;
+}
+
+tr.widget.small > td {
+    padding: 10px;
+}
+
+tr.widget.yellow > td, td.yellow {
+    background-color: #f6f2e4;
+}
+
+tr.widget.transparent, tr.widget.transparent > td {
+    border: 1px solid #f6f2e4;
+}
+
+tr.widget.yellow h2 {
+    color: #922944;
+}
+
+tr.widget.transparent h2 {
+    color: #475478;
+}
+
+td.widget:first-child {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+td.widget:last-child {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+td.widget {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* ## Footer
+
+    <table>
+        <tr class="footer">
+            <td>
+                some text with <a href="#">a link</a>
+            </td>
+        </tr>
+    </table>
+*/
+
+tr.footer {
+    background-color: #475478;
+    color: #fff;
+    font-weight: normal;
+    font-size: 9pt;
+}
+
+tr.footer > td {
+    padding: 10px 20px;
+}
+
+table tr.footer:last-child > td {
+    padding-bottom: 26px;
+}
+
+.footer a {
+    color: white;
+}
+
+/* # Other elements
+ ## Buttons
+
+    <a href="#" class="button">Regular</a>
+    <a href="#" class="button small">small</a>
+    <a href="#" class="button red">Regular red</a>
+*/
+
+a.button {
+    display: inline-block;
+    background-color: #f6f2e4;
+    text-transform: uppercase;
+    font-size: 12pt;
+    padding: 10px 1em;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button.small {
+    font-size: 10pt;
+}
+
+.button.red {
+    color: #890531;
+}
+
+/* ## Borders for images
+
+    <img src="https://upload.wikimedia.org/wikipedia/ru/2/24/Lenna.png" width="150px" class="bordered">
+*/
+
+img.bordered {
+    border: 1px solid #890531;
+}
+
+/* ## Headings
+
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
+*/
+
+h1,
+h2,
+h3 {
+    font-family: "Ubuntu Bold", "Ubuntu", Arial, sans-serif;
+    font-size: 14pt;
+    margin: 10px 0 10px;
+}
+
+h1 {
+    font-size: 18pt;
+}
+
+h2 {
+    font-size: 14pt;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 10pt;
+}
+
+/* ## Small text
+
+    <p class="small">small</p>
+*/
+
+.small {
+    font-weight: 200;
+    font-size: 90%;
+}
+
+
+/* ## Aligning text
+
+    <div class="align-right">right</div>
+    <div class="align-left">left</div>
+    <div class="align-center">center</div>
+*/
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.space-160 {
+    height: 160px !important;
+}
+
+.fill-width {
+    width: 100%;
+}
+
+.min-width {
+    width: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0 0 8pt;
+}
+
+p:last-child {
+    padding-bottom: 0;
+}
+
+.black {
+    color: #000 !important;
+}
+
+.red{
+    color: #922944 !important;
+}
+
+.textcolor{
+    color: #5c5c5c!important;
+}
+
+@media only screen and (max-width: 800px) {
+    table, thead, tbody, tr, td:not(tr.logo) {
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .small-hide {
+        display: none;
+    }
+
+    div.wrapper {
+        width: 90%;
+    }
+}
+
+div.wrapper {
+    margin: 0 auto;
+    width: 95%;
+    max-width: 900px;
+}
+
+/* ## Social colors
+
+    <div class="color-fb">facebook</div>
+    <div class="color-vk">vk.com</div>
+    <div class="color-tw">twitter</div>
+    <div class="color-yt">youtube</div>
+    <div class="color-gp">google plus</div>
+
+*/
+
+.color-fb {
+    color: #006da9;
+}
+
+.color-vk {
+    color: #2d76a6;
+}
+
+.color-tw {
+    color: #28abe1;
+}
+
+.color-yt {
+    color: #f11c00;
+}
+
+.color-gp {
+    color: #f94f2c;
+}
+
+/* ## Navy colored text
+
+    <span class="navy">text</span>
+*/
+.navy {
+    color: #475478 !important;
+}
+
+/* ## Smaller line-height
+
+    <div class="lh-small">
+        line1<br>line2
+    </div>
+*/
+
+.lh-small {
+    line-height: 10px;
+}
+
+/* ## Non-padded block
+
+    <div class="no-padding">here</div>
+*/
+
+.no-padding {
+    padding: 0 !important;
+}
+
+/* ## Icons
+
+    <img class="icon" width="25px" src="https://upload.wikimedia.org/wikipedia/ru/2/24/Lenna.png">
+*/
+
+.icon {
+    display: inline;
+    margin-right: 1em;
+    line-height: inherit;
+    border: 0;
+}
+
+/* ## Hidden element
+
+    <div class="hidden">here</div>
+*/
+
+.hidden {
+    display: none;
+}
+
+/* ## Non-bordered block
+
+    <div class="no-border">here</div>
+*/
+
+.no-border {
+    border: 0;
+}
+
+/* ## Non-decorated text
+
+    <u class="no-decoration">here</u>
+*/
+
+.no-decoration {
+    text-decoration: none;
+}
+
+/* ## Darker hover
+
+    <a href="#" class="darker-hover">here</u>
+*/
+
+.darker-hover:hover{
+    -webkit-filter: brightness(75%);
+    filter: brightness(75%);
+}
+
+html{max-height:1000000px;}

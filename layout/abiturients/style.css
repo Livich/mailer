@@ -1,0 +1,16 @@
+div.video{
+    min-height:120px;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    margin-bottom:15px;
+}
+
+a.video{
+    text-align: center;
+    display: inline-block;
+    margin: 0 10% 10%;
+}
+
+.smaller{
+    font-size:70%;
+}
